@@ -36,7 +36,7 @@
     //#define BI
     //#define TRI
     //#define QUADP
-    //#define QUADX
+    #define QUADX
     //#define Y4
     //#define Y6
     //#define HEX6
@@ -140,7 +140,7 @@
       //#define Bobs_9DOF_V1     // BobsQuads 9DOF V1 with ITG3200, BMA180 & HMC5883L
       //#define Bobs_10DOF_BMP_V1 // BobsQuads 10DOF V1 with ITG3200, BMA180, HMC5883L & BMP180 - BMP180 is software compatible with BMP085
       //#define FLYDUINO_MPU       // MPU6050 Break Out onboard 3.3V reg
-      //#define CRIUS_AIO_PRO_V1
+      #define CRIUS_AIO_PRO_V1
       //#define DESQUARED6DOFV2GO  // DEsquared V2 with ITG3200 only
       //#define DESQUARED6DOFV4    // DEsquared V4 with MPU6050
       //#define LADYBIRD
@@ -164,7 +164,7 @@
       //#define ITG3200
       //#define MPU3050
       //#define L3G4200D
-      //#define MPU6050       //combo + ACC
+      #define MPU6050       //combo + ACC
       //#define LSM330        //combo + ACC
       
       /* I2C accelerometer */
@@ -179,11 +179,11 @@
 
       /* I2C barometer */
       //#define BMP085
-      //#define MS561101BA
+      #define MS561101BA
 
       /* I2C magnetometer */
       //#define HMC5843
-      //#define HMC5883
+      #define HMC5883
       //#define AK8975
       //#define MAG3110
 
@@ -789,7 +789,7 @@ Also note, that maqgnetic declination changes with time, so recheck your value e
       //#define LCD_TTY         // SERIAL LCD: useful to tweak parameters over cable with arduino IDE 'serial monitor'
       //#define LCD_ETPP        // I2C LCD: Eagle Tree Power Panel LCD, which is i2c (not serial)
       //#define LCD_LCD03       // I2C LCD: LCD03, which is i2c
-      //#define OLED_I2C_128x64 // I2C LCD: OLED http://www.multiwii.com/forum/viewtopic.php?f=7&t=1350
+//#define OLED_I2C_128x64 // I2C LCD: OLED http://www.multiwii.com/forum/viewtopic.php?f=7&t=1350
       //#define OLED_DIGOLE     // I2C OLED from http://www.digole.com/index.php?productID=550
 
     /******************************   Display settings   ***********************************/
@@ -968,7 +968,7 @@ Also note, that maqgnetic declination changes with time, so recheck your value e
      * It must be 16 characters total,
      * The last 4 characters will be overwritten with the version number.
      */
-    #define BOARD_NAME "MultiWii   V-.--"
+    #define BOARD_NAME "Flypi      V-.--"
     //                  123456789.123456
 
   /*************      Support multiple configuration profiles in EEPROM     ************/
@@ -1120,7 +1120,7 @@ Also note, that maqgnetic declination changes with time, so recheck your value e
     //#define LCD_TELEMETRY_DEBUG 6  //This form stays on the screen specified.
 
     /* Enable string transmissions from copter to GUI */
-    //#define DEBUGMSG
+    #define DEBUGMSG
 
 
   /********************************************************************/
@@ -1189,4 +1189,3 @@ Also note, that maqgnetic declination changes with time, so recheck your value e
 /*************************************************************************************************/
 
 #endif /* CONFIG_H_ */
-

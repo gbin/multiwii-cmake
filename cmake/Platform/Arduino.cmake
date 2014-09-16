@@ -373,7 +373,7 @@ function(GENERATE_ARDUINO_LIBRARY INPUT_NAME)
         set(INPUT_MANUAL FALSE)
     endif()
     required_variables(VARS INPUT_SRCS INPUT_BOARD MSG "must define for target ${INPUT_NAME}")
-    
+
     set(ALL_LIBS)
     set(ALL_SRCS ${INPUT_SRCS} ${INPUT_HDRS})
 
