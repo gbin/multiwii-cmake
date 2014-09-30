@@ -36,6 +36,7 @@
   #define SPEKTRUM 2048
   #define LED_RING
   #define GPS_SERIAL 2
+  #define NMEA
   #define LOG_VALUES 2
   #define LOG_PERMANENT
   #define LOG_PERMANENT_SERVICE_LIFETIME 36000
@@ -1633,10 +1634,16 @@
   #define GPS_PROMINI
 #endif
 
-#if defined(GPS_SERIAL)  || defined(I2C_GPS) || defined(GPS_FROM_OSD)
+#if defined(GPS_SERIAL)  || defined(I2C_GPS)
   #define GPS 1
 #else
   #define GPS 0
+#endif
+
+#if defined(GPS_SERIAL)
+  #define NAVCAP 1
+#else
+  #define NAVCAP 0
 #endif
 
 #if defined(SRF02) || defined(SRF08) || defined(SRF10) || defined(SRC235) || defined(I2C_GPS_SONAR)
@@ -1645,6 +1652,15 @@
   #define SONAR 0
 #endif
 
+#if defined(EXTENDED_AUX_STATES)
+  #define EXTAUX 1
+#else
+  #define EXTAUX 0
+#endif
+
+#if defined(RX_RSSI_CHAN)
+  #define RX_RSSI
+#endif
 
 /**************************************************************************************/
 /***************      Multitype decleration for the GUI's          ********************/
@@ -1690,7 +1706,7 @@
 #elif defined(HEX6H)
   #define MULTITYPE 18
 #elif defined(SINGLECOPTER)
-  #define MULTITYPE 20
+  #define MULTITYPE 21
   #define SERVO_RATES      {30,30,100,0,1,0,1,100}
 #elif defined(DUALCOPTER)
   #define MULTITYPE 20
@@ -1745,7 +1761,7 @@
 
 //all new Special RX's must be added here
 //this is to avoid confusion :)
-#if !defined(SERIAL_SUM_PPM) && !defined(SPEKTRUM) && !defined(SBUS)
+#if !defined(SERIAL_SUM_PPM) && !defined(SPEKTRUM) && !defined(SBUS) && !defined(SUMD)
   #define STANDARD_RX
 #endif
 
@@ -2043,6 +2059,10 @@
 
 #if defined(A32U4_4_HW_PWM_SERVOS) && !(defined(HELI_120_CCPM))
   #error "for your protection: A32U4_4_HW_PWM_SERVOS was not tested with your coptertype"
+#endif
+
+#if GPS && !defined(NMEA) && !defined(UBLOX) && !defined(MTK_BINARY16) && !defined(MTK_BINARY19) && !defined(INIT_MTK_GPS)
+  #error "when using GPS you must specify the protocol NMEA, UBLOX..."
 #endif
 
 #endif /* DEF_H_ */
